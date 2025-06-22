@@ -8,7 +8,7 @@
       font-family: Arial, sans-serif;
       text-align: center;
       margin-top: 100px;
-      background: #FFE5B4; /* orange pastel */
+      background: #ff7f00; /* orange vif demandé */
       transition: background 0.3s;
     }
     #secret, #secret2 {
@@ -42,13 +42,15 @@
       margin-top: 30px;
       text-align: center;
     }
-    .custom-gif {
-      width: 100%;
-      max-width: 480px;
+    .custom-gif, .second-gif {
       display: block;
       margin: 0 auto;
       border-radius: 12px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .custom-gif {
+      width: 100%;
+      max-width: 480px;
     }
     .second-code-container {
       margin-top: 40px;
@@ -58,10 +60,7 @@
       width: 33%;
       max-width: 160px;
       min-width: 80px;
-      display: block;
-      margin: 40px auto 0 auto;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin: 80px auto 0 auto; /* Marge supérieure augmentée */
     }
     @media (max-width: 500px) {
       .message-container, .custom-gif {
@@ -78,19 +77,19 @@
   </style>
 </head>
 <body>
-  <!-- Première étape : code promo -->
+  <!-- Première étape : code -->
   <div id="login">
     <h2>Code requis</h2>
-    <input type="password" id="pwd" placeholder="Code promo">
+    <input type="password" id="pwd" placeholder="Code">
     <button onclick="checkPassword()">Entrer</button>
     <p id="error" style="color:red;"></p>
   </div>
 
-  <!-- Après code promo : message + premier GIF + deuxième case code -->
+  <!-- Après code : message + premier GIF + deuxième case code -->
   <div id="secret">
     <div class="message-container">
       <div class="message">
-        Tu as été assez persévérante pour arriver jusqu’ici !<br>
+        Tu as été assez persévérante pour arriver jusqu’ici…<br>
         On se revoit bientôt ?
       </div>
       <div class="gif-container">
@@ -117,13 +116,13 @@
         document.getElementById('login').style.display = 'none';
         document.getElementById('secret').style.display = 'block';
       } else {
-        document.getElementById('error').textContent = "Code promo incorrect.";
+        document.getElementById('error').textContent = "Code incorrect.";
       }
     }
 
     function checkSecondCode() {
       const code = document.getElementById('second-code').value;
-      if (code === '++') {
+      if (code === 'AGAIN20') {
         document.getElementById('secret').style.display = 'none';
         document.getElementById('secret2').style.display = 'block';
         document.body.style.background = '#2B15A0';
